@@ -20,13 +20,6 @@ menu>.overlay {
     background-color: rgba(0, 0, 0, 1);
 }
 
-#menu_video {
-    position: fixed;
-    min-width: 100%;
-    min-height: 100%;
-    border: soldi 5px white;
-}
-
 menu>main {
     z-index: 1000;
     display: flex;
