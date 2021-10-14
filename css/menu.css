@@ -1,0 +1,58 @@
+menu {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+menu>.overlay {
+    position: absolute;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 1);
+}
+
+#menu_video {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    border: soldi 5px white;
+}
+
+menu>main {
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 50vh;
+    border: solid 1px #333;
+    background-color: rgba(51, 51, 51, 0.267);
+}
+
+.button {
+    appearance: none;
+    width: 20rem;
+    border: solid 1px #000;
+    background-color: transparent;
+    color: #FFF;
+    font-family: "ArcadeClassic";
+    font-size: 2rem;
+    margin: .5rem;
+    text-align: left;
+    border-radius: 3px;
+}
+
+.button:hover {
+    cursor: pointer;
+    border: solid 1px #FFF;
+}

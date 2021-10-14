@@ -1,37 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Game Engine</title>
+
+    <link href="http://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./css/engine.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/starfield.css">
 </head>
+
 <body>
     
     <header>
         Game1
+        <audioo src="./sound/002-MainMenu.mp3" autoplay loop/>
     </header>
-
+    
     <main id="screen">
-
-        <div id="background">
-            
-        </div>
         
-        <div id="scene">            
+        
+    </main>
+    
+    <footer id="monitor">
+        console
+    </footer>
+    
+    <template id="menu_template">
+        <menu>
+            <div class="overlay">
+                <div id="space">
+                    <div class="stars"></div>
+                    <div class="stars"></div>
+                    <div class="stars"></div>
+                    <div class="stars"></div>
+                    <div class="stars"></div>
+                  </div>
+            </div>
+            <main>
+                <button id="NEW_GAME"  class="button">1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NEW GAME</button>
+                <button id="LOAD_GAME" class="button">2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOAD GAME</button>
+                <button id="QUIT"      class="button">3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QUIT     </button>
+            </main>
+        </menu>
+    </template>
+
+    <template id="menu-load_template">
+        <menu>
+            <div class="overlay"></div>
+            <main>
+                <button class="button">1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SAVE 1</button>
+                <button class="button">2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SAVE 2</button>
+                <button class="button">3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SAVE 3</button>
+                <br></br>
+                <button id="BACK" class="button">BACK</button>
+            </main>
+        </menu>
+    </template>
+
+    <template id="game_template">
+        <div id="background">
+        </div>
+        <div id="scene">
             <div id="map">
             </div>
         </div>
         <div id="sprite1" className="sprite" />
-        
-
-    </main>
-
-    <footer id="monitor">
-        console
-    </footer>
+    </template>
 
     <script src="./js/engine.js" type="module"></script>
+    <script src="./index.js" type="module"></script>
 </body>
+
 </html>

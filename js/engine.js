@@ -12,8 +12,8 @@ const engine = {
     keys: {},
     monitor,
     screen,
-    background,
-    scene,
+    background: null,
+    scene: null,
     sprite: null,
     clockSpeed: 50,
     scroll: false
@@ -101,4 +101,5 @@ const map = [
     { type: "platform", x: 200055, y: 200000, width: 10, height: 1 },
 ]
 
-engine.start(map)
+export default engine
+

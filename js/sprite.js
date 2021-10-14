@@ -9,6 +9,45 @@ function collide(rect1, rect2) {
         && rect1.height + rect1.y > rect2.y
 }
 
+function checkCollisions(item, items) {
+    return items.filter(i => collide(i, item))
+}
+
+const Player = (x = 0, y = 0, width = 5, height = 5 ) => {
+
+    return {
+        x,
+        y,
+        width,
+        height,
+        sprite,
+        canJump: true,
+        canClimb: false,
+
+        move: function(moves=[]) {
+
+            if (sprt.move === 'Right') {
+                this.sprite = ''
+                sprt.x = sprt.x + 1
+            }
+
+            if (sprt.move === 'Left') {
+                sprt.x = sprt.x - 1
+            }
+
+            if (sprt.move === 'Up' && sprt.canClimb) {
+                sprt.y = sprt.y - 2
+            }
+
+            if (sprt.move === 'Down' && sprt.canClimb) {
+                sprt.y = sprt.y + 2
+            }
+
+        }
+    }
+
+}
+
 /**
  * Sprites
  */
@@ -23,6 +62,7 @@ const Sprite = (element, width, height, steps, gravity = 1) => {
         x: 30,
         y: 0,
         jump: 0,
+        canClimb: false,
     }
 
     sprt.animate = (keys, items = []) => {
@@ -30,7 +70,7 @@ const Sprite = (element, width, height, steps, gravity = 1) => {
         // MOVEMENT
         var move = ''
 
-        if (keys[' '] === true) { 
+        if (keys[' '] === true) {
             if (sprt.jump === 0) sprt.jump = 1
             keys[' '] = false
         }
@@ -53,28 +93,36 @@ const Sprite = (element, width, height, steps, gravity = 1) => {
                 element.style.transform = `scaleX(-1)`
                 sprt.x = sprt.x - 1
             }
+            if (sprt.move === 'Up' && sprt.canClimb) {
+                sprt.y = sprt.y - 2
+            }
+            if (sprt.move === 'Down' && sprt.canClimb) {
+                sprt.y = sprt.y + 1
+            }
 
             sprt.step = sprt.step <= steps ? sprt.step + 1 : 0
             element.style.backgroundPosition = `-${width * sprt.step}px -${height * 0}px`
         }
-        
+
         // COLLIDE
+        const collisions = checkCollisions(sprt, items)
+        if (collisions.length > 0) {
 
-            if (items.some(item => collide(item, sprt))) {
-                
-            } else {
-                 sprt.y = (sprt.y + 1) * gravity     
-            }
-        
+            sprt.canClimb = collisions.some(item => item.type === 'stair')
 
-        if (sprt.jump > 0 ) {
-            sprt.jump = sprt.jump + 1
-            if ( sprt.jump < 10 ) sprt.y = sprt.y - 2
-            if (sprt.jump === 21) sprt.jump = 0 
+        } else {
+            sprt.y = (sprt.y + 1) * gravity
         }
-         
+
+
+        if (sprt.jump > 0) {
+            sprt.jump = sprt.jump + 1
+            if (sprt.jump < 10) sprt.y = sprt.y - 2
+            if (sprt.jump === 21) sprt.jump = 0
+        }
+
         element.style.left = `${sprt.x}rem`
-        element.style.top = `${sprt.y}rem` 
+        element.style.top = `${sprt.y}rem`
 
     }
 
