@@ -56,7 +56,7 @@ const Sprite = (element, width, height, steps, gravity = 1) => {
     const sprt = {
         element,
         width: 3,
-        height: 6,
+        height: 5,
         step: 0,
         move: 0,
         x: 30,

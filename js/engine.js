@@ -15,7 +15,7 @@ const engine = {
     background: null,
     scene: null,
     sprite: null,
-    clockSpeed: 50,
+    clockSpeed: 80,
     scroll: false
 }
 

@@ -40,9 +40,9 @@
   position: absolute;
   top: 25rem;
   left: 50%;
-  height: 60px;
+  height: 50px;
   width: 50px;
-  background: url("../img/sprite4.png");
+  background: url("../img/sprite0.png");
   background-size: 400px;
 }
 
